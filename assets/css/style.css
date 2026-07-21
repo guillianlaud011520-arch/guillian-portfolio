@@ -1584,5 +1584,556 @@ footer p{
 }
 
 /* ===========================================
+   HERO BACKGROUND
+=========================================== */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #ffffff 55%,
+            #dbeafe 100%
+        );
+
+}
+
+body.dark .hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b,
+            #0f172a
+        );
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+
+    height:650px;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.08);
+
+    top:-260px;
+
+    right:-200px;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+
+    height:400px;
+
+    border-radius:50%;
+
+    background:rgba(56,189,248,.12);
+
+    bottom:-150px;
+
+    left:-120px;
+
+}
+
+/* ===========================================
+   STATS
+=========================================== */
+
+.stats{
+
+    padding:60px 0;
+
+    background:var(--surface);
+
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.stat-card{
+
+    background:var(--background);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.stat-card h2{
+
+    font-size:2.8rem;
+
+    color:var(--primary);
+
+}
+
+.stat-card p{
+
+    margin-top:10px;
+
+    color:var(--text-light);
+
+}
+
+/* ===========================================
+   CONTACT FORM
+=========================================== */
+
+.contact-form input:focus,
+
+.contact-form textarea:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/* ===========================================
+   ACTIVE NAV LINK
+=========================================== */
+
+.navbar a.active{
+
+    color:var(--primary);
+
+}
+
+.navbar a.active::after{
+
+    width:100%;
+
+}
+
+/* ===========================================
+   SCROLL TO TOP
+=========================================== */
+
+.scrollTop{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.scrollTop.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.scrollTop:hover{
+
+    transform:translateY(-6px);
+
+    background:var(--secondary);
+
+}
+
+/* ===========================================
+   LOADING EFFECT
+=========================================== */
+
+body{
+
+    opacity:0;
+
+}
+
+body.loaded{
+
+    opacity:1;
+
+    transition:.7s ease;
+
+}
+
+/* ===========================================
+   FLOAT ANIMATION
+=========================================== */
+
+.hero-image img{
+
+    animation:floatImage 5s ease-in-out infinite;
+
+}
+
+@keyframes floatImage{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================================
+   CARD HOVER
+=========================================== */
+
+.skill-card,
+
+.project-card,
+
+.info-card,
+
+.contact-card,
+
+.stat-card{
+
+    transition:.35s;
+
+}
+
+.skill-card:hover,
+
+.project-card:hover,
+
+.info-card:hover,
+
+.contact-card:hover,
+
+.stat-card:hover{
+
+    box-shadow:
+
+    0 20px 45px rgba(37,99,235,.15);
+
+}
+
+/* ===========================================
+   IMAGE OVERLAY
+=========================================== */
+
+.project-image{
+
+    position:relative;
+
+}
+
+.project-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+    rgba(0,0,0,0),
+
+    rgba(0,0,0,.35)
+
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.project-card:hover .project-image::before{
+
+    opacity:1;
+
+}
+
+/* ===========================================
+   BUTTON RIPPLE EFFECT
+=========================================== */
+
+.btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.25);
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    transition:.5s;
+
+}
+
+.btn:hover::before{
+
+    width:350px;
+
+    height:350px;
+
+}
+
+/* ===========================================
+   MOBILE MENU
+=========================================== */
+
+.menu-toggle{
+
+    display:none;
+
+}
+
+@media(max-width:768px){
+
+    .menu-toggle{
+
+        display:block;
+
+        font-size:28px;
+
+        cursor:pointer;
+
+        color:var(--primary);
+
+    }
+
+}
+
+/* ===========================================
+   BETTER SECTION SPACING
+=========================================== */
+
+section{
+
+    scroll-margin-top:100px;
+
+}
+
+/* ===========================================
+   FOOTER IMPROVEMENTS
+=========================================== */
+
+footer h2{
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    color:rgba(255,255,255,.8);
+
+}
+
+/* ===========================================
+   GLASS CARD
+=========================================== */
+
+.glass-card{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+}
+
+/* ===========================================
+   PROFILE IMAGE BORDER
+=========================================== */
+
+.hero-image{
+
+    position:relative;
+
+}
+
+.hero-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    border:3px dashed var(--accent);
+
+    animation:spin 25s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===========================================
+   HOVER LINKS
+=========================================== */
+
+a{
+
+    transition:.3s;
+
+}
+
+a:hover{
+
+    opacity:.9;
+
+}
+
+/* ===========================================
+   RESPONSIVE FIXES
+=========================================== */
+
+@media(max-width:576px){
+
+    .hero-image::before{
+
+        width:300px;
+
+        height:300px;
+
+    }
+
+    .stats-grid{
+
+        gap:18px;
+
+    }
+
+    .stat-card{
+
+        padding:25px;
+
+    }
+
+    .contact-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}
+
+/* ===========================================
+   END
+=========================================== */
+/* ===========================================
    END OF STYLESHEET
 =========================================== */
